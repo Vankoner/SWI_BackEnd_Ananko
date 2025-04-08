@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.interfaces;
 
 import com.example.demo.entities.Achievement;
 

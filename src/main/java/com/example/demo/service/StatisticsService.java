@@ -1,7 +1,8 @@
 package com.example.demo.service;
 
 import com.example.demo.entities.Game;
-import com.example.demo.repository.GameRepository;
+import com.example.demo.interfaces.StatisticsServiceInterface;
+import com.example.demo.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,11 +11,11 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
-public class StatisticsServiceImpl implements StatisticsServiceInterface {
+public class StatisticsService implements StatisticsServiceInterface {
     private final GameRepository gameRepository;
 
     @Autowired
-    public StatisticsServiceImpl(GameRepository gameRepository) {
+    public StatisticsService(GameRepository gameRepository) {
         this.gameRepository = gameRepository;
     }
 

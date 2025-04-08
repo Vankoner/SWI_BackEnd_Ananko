@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.interfaces;
 
 public interface StatisticsServiceInterface {
     Double getTotalHoursPlayed();

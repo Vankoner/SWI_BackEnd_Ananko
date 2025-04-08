@@ -1,18 +1,19 @@
 package com.example.demo.service;
 
 import com.example.demo.entities.Achievement;
-import com.example.demo.repository.AchievementRepository;
+import com.example.demo.interfaces.AchievementServiceInterface;
+import com.example.demo.repositories.AchievementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class AchievementServiceImpl implements AchievementServiceInterface {
+public class AchievementService implements AchievementServiceInterface {
     private final AchievementRepository achievementRepository;
 
     @Autowired
-    public AchievementServiceImpl(AchievementRepository achievementRepository) {
+    public AchievementService(AchievementRepository achievementRepository) {
         this.achievementRepository = achievementRepository;
     }
 

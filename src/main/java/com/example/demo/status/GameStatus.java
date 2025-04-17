@@ -1,6 +1,8 @@
 package com.example.demo.status;
 
 public enum GameStatus {
-    PLAYING,
-    COMPLETED
+    PLANNED,
+    IN_PROGRESS,
+    COMPLETED,
+    DROPPED
 }

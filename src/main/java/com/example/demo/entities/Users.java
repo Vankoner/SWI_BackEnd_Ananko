@@ -3,6 +3,9 @@ package com.example.demo.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "users")
 public class Users {
@@ -20,11 +23,16 @@ public class Users {
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = true)
-    private String avatarUrl; // Для аватара
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Game> games = new ArrayList<>();
 
-    public Users() {
-    }
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Achievement> achievements = new ArrayList<>();
+
+    @Column(nullable = true)
+    private String avatarUrl;
+
+    public Users() {}
 
     public Users(Long id, String username, String email, String password, String avatarUrl) {
         this.id = id;
@@ -34,43 +42,24 @@ public class Users {
         this.avatarUrl = avatarUrl;
     }
 
-    public Long getId() {
-        return id;
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public String getUsername() { return username; }
+    public void setUsername(String username) { this.username = username; }
 
-    public String getUsername() {
-        return username;
-    }
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
 
-    public String getEmail() {
-        return email;
-    }
+    public List<Game> getGames() { return games; }
+    public void setGames(List<Game> games) { this.games = games; }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    public List<Achievement> getAchievements() { return achievements; }
+    public void setAchievements(List<Achievement> achievements) { this.achievements = achievements; }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getAvatarUrl() {
-        return avatarUrl;
-    }
-
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
-    }
+    public String getAvatarUrl() { return avatarUrl; }
+    public void setAvatarUrl(String avatarUrl) { this.avatarUrl = avatarUrl; }
 }

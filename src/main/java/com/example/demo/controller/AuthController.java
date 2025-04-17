@@ -53,7 +53,7 @@ public class AuthController {
         responseBody.put("avatarUrl", user.getAvatarUrl());
         responseBody.put("email", user.getEmail());
 
-        return ResponseEntity.ok(responseBody);
+        return ResponseEntity.ok(token);
     }
 
 
